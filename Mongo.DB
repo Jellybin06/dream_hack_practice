@@ -1,0 +1,39 @@
+--Comparison
+$eq : 지정된 값과 같은 값을 찾습니다.
+$in : 배열 안의 값들과 일치하는 값을 찾습니다.
+$ne : 지정된 값과 같지 않은 값을 찾습니다.
+$nin : 배열 안의 값들과 일치하지 않는 값을 찾습니다. 
+
+
+--Logical
+$and 논리적 AND, 각각의 쿼리를 모두 만족하는 문서가 반환됩니다.
+$not 쿼리 식의 효과를 반전시킵니다. 쿼리 식과 일치하지 않는 문서를 반환합니다.
+$nor 논리적 NOR, 각각의 쿼리를 모두 만족하지 않는 문서가 반환됩니다.
+$OR 논리적 OR, 각각의 쿼리 중 하나 이상 만족하는 문서가 반환됩니다.
+
+
+--Element
+$exists 지정된 필드가 있는 문서를 찾습니다.
+$type 지정된 필드가 지정된 유형인 문서를 선택합니다.
+
+
+--Evaluation
+$expr 쿼리 언어 내에서 집계 식을 사용할 수 있습니다.
+$regex 지정된 정규식과 일치하는 문서를 선택합니다.
+$text 지정된 텍스트를 검색합니다.
+
+
+
+-- SQL에서 MongoDB
+
+(INSERT)
+SELECT * FROM account; --> db.account.find()
+SELECT * FROM account WHERE user_id="admin"; --> db.account.find({user_id: "admin"})
+SELECT user_idx FROM account WHERE user_id="admin"; --> db.account.find({ user_id:"admin" },{ user_idx:1, _id:0 })
+
+(DELETE)
+DELETE FROM account; --> db.account.remove()
+DELETE FROM account WHERE user_id="guest"; --> ab.account.remove({user_id: "guest"})
+
+(UPDATE)
+UPDATE account SET user_id="guest2" WHERE user_idx=2; --> db.account.update({user_idx: 2}, {$set:{user_id:"guest2"}})

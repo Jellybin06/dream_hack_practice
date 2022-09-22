@@ -1,0 +1,16 @@
+-- Redis 데이터 조회 및 조작 명령어
+명령어 (구조) {설명}
+GET (GET key) {데이터 조회}
+MGET (MGET key [key ...]) {여러 데이터를 조회}
+SET (SET key value) {새로운 데이터 추가}
+MSET (MSET key value) [key value ...] {여러 데이터를 추가}
+DEL (DEL key [key ...]) {데이터 삭제}
+EXISTS (EXISTS key [key ...]) {데이터 유무 확인}
+INCR (INCR key) {데이터 값에 1 더함}
+DECR (DECR key) {데이터 값에 1 뺌}
+
+
+-- Redis 관리 명령어
+INFO (INFO [section]) {DBMS 정보 조회}
+CONFIG GET (CONFIG GET parameter) {설정 조회}
+CONFIG SET (CONFIG SET parameter value) {새로운 설정을 입력}
