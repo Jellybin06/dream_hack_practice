@@ -1,0 +1,28 @@
+@APP.route('/read')
+def read_memo():
+    error = False
+    data = b''
+
+    filename = request.args.get('name', '')
+
+    try:
+        with open(f'{UPLOAD_DIR}/{filename}', 'rb') as f:
+            data = f.read()
+    except (IsADirectoryError, FileNotFoundError):
+        error = True
+
+
+    return render_template('read.html',
+                           filename=filename,
+                           content=data.decode('utf-8'),
+                           error=error)
+
+
+URL에 직접 넣어서 해본다
+저기 read부분에서
+filename = name ...
+name=~~
+~~가 flag.py인데
+flag.py가 UPLOAD_DIR 다음 파일이니
+../filag.py라 해야하고
+그러므로 정답은 read?name = ../flag.py 를 넣는 것이다.
