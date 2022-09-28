@@ -9,7 +9,7 @@ app.get('/query', function(req, res) {
         'upw': req.query.upw
     }).toArray(function(err, result) {
         if(err) throw err;
-        res.send(result)l
+        res.send(result)
     })
 })
 
