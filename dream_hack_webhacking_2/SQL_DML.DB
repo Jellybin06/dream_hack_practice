@@ -1,0 +1,38 @@
+Data Manipulation Language (DML)은 데이터베이스에서 데이터를 조회, 추가, 삭제, 수정을 수행하는 구문이다. 우리가 웹 서비스에서 이용하는 대다수의 기능은 DML을 통해 처리한다 해도 과언이 아닐 정도로 많이 사용된다.
+DML 구문을 사용하는 목적과 형태를 알고 있가면 SQL Injection 공격을 보다 쉽고 빠르게 이해할 수 있다.
+
+////////////////////////////////////////
+
+SELECT : 데이터를 조회하는 구문
+Figure 1. SELECT 구문
+{
+    # mysql SELECT Statement
+    https://dev.mysql.com/doc/refman/8.0/en/select.html
+    SELECT
+        select_expr [, seelct_expr] ...
+    FROM table_references
+    WHERE where_condition
+    [GROUP BY {col_name | expr | position}, ... [WITH ROLLUP]]
+    [ORDER BY [col_name | expr | position} [ASC | DESC], ... [WITH ROLLUP]]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+}
+////////////////////////////////////////////////////////////
+
+Figure 2. SELECT 구문 사용 예시
+{
+    SELECT
+        uid, title, boardcontent
+    FROM board
+    WHERE boardcontent like '%abc%'
+    ORDER BY uid DESC
+    LIMIT 5
+}
+
+Figure2 는 SELECT 구문을 사용한 예시이다.
+form 절을 사용해 board 테이블의 uid title boardcontent 데이터를 검색
+where 절을 사용해 boardcontent 데이터에 abc문자가 포함되어 있는지 찾는다.
+이렇게 찾은 데이터를 ORDER BY 절을 통해 uid를 기준으로 내림차수 정렬한 후,
+5개의 행을 결과로 반환한다.
+
+
+////////////////////////////////////////////////////////////
