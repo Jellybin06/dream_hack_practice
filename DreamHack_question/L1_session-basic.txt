@@ -1,0 +1,19 @@
+쿠키와 세션으로 인증 상태를 관리하는 서비스에서 admin 계정으로 로그인 하는 문제이다.
+
+일단 코드를 보자
+
+유저는 guest, user, admin이 있다.
+
+admin session으로 로그인 하는 것 같은데..
+코드 /admin 부근에 session을 얻을 수 있는 문구가 보인다.
+
+http://~~~~~~~~~~:~~~~~/admin
+이렇게 어드민 페이지로 가보면
+admin 세션을 얻을 수 있다.
+
+이제 guest로 로그인하자
+id = guest , pw = guest
+로그인 후 you are not admin 이라는 문구가 보인다
+
+f12를 누르고 쿠키에 들어가 guest 계정의 session을 admin 계정의 session으로 바꾸고
+f5를 누르면 admin 계정으로 로그인이 되고 FLAG 값을 얻을 수 있다.
