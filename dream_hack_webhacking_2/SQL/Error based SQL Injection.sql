@@ -32,5 +32,3 @@ SELECT updatexml(null,concat(0x0a,version()),null);
 --ERROR 1105 (HY000): XPATH syntax error: '5.7.29-0ubuntu0.16.04.1-log'
 
 
-
-
